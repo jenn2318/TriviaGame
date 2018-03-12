@@ -1,0 +1,24 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-image: url('../../assets/images/halftone-yellow.png');
+	background-size: cover;
+	box-sizing: border-box;
+}
+
+.header{
+	background-color: pink;
+}
+
+h1 {
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	text-align : center;
+	font-size: 80px;
+	color: blue;
+}   
+
+h2 {
+	text-align: center;
+	font-size: 40px;
+	color: purple;
+}
