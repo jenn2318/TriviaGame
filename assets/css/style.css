@@ -22,3 +22,15 @@ h2 {
 	font-size: 40px;
 	color: purple;
 }
+
+.container {
+	background-color: #4aaaa5;
+	height: 180%;
+	margin: 20 50 20 50;
+}
+
+.questions {
+	text-align: center;
+	color: black;
+	font-size : 22px;
+}
