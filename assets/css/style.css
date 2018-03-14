@@ -17,13 +17,13 @@ h1 {
 	color: blue;
 }   
 
-h2 {
+h3 {
 	text-align: center;
 	font-size: 40px;
 	color: purple;
 }
 
-.container {
+.timeContainer {
 	background-color: #4aaaa5;
 	height: 180%;
 	margin: 20 50 20 50;

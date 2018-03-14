@@ -5,6 +5,7 @@
 	<title>Trivia Game</title>
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>     
 
@@ -14,10 +15,14 @@
 	<h1>Awesome 80's Trivia!<h1>
 </div>
 
-<div class="container">
-<div id="timer">
-	<h2>Time Remaining:" "</h2>
+<div class="timeContainer">
+<div id="timeRemaining">
+	<h3>Time Remaining:</h3>
+  <p class="timeRemain"></p>
 </div>
+
+<!-- <button type="button" class="btn btn-Start">Start</button> -->
+
 
 <div class="questions">
    <form>
@@ -65,7 +70,7 @@
 
 
 
-<script type="text/javascript" src="assets/javascript/game.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 
 
    </body>
