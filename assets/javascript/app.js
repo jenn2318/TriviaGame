@@ -15,7 +15,7 @@ var index = 0;
 var question = 0;
 var intervalTime;
 var timeRemaining = "";
-var questionArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6']
+// var questionArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6']
 // var questions = 0
 
 //==================================================================
@@ -70,7 +70,7 @@ function gameStart() {
 function showMeQuestion () {
   $(".questions").empty();
   for (var i = 0; i < 6; i++)//for loop to loop through the questions 
-   $(".questions").text("<p> " + questionArray.length[0]);
+   $(".questions").text("<p> " + questions.length[i]);
 }
 //Function for the timer to count down
 function timerRun() {
@@ -84,9 +84,7 @@ function timeRemaining(){
    if (timeRemaining === 0) {
    	//if time runs out
    	//increment questions
-   	// question++;
-   }
-   
+   	// question++;   
 }
 //Function to let the player know the time is up and questions still unanswered
 function timesUp() {
@@ -114,11 +112,12 @@ function checkAnswers(){
 }   if(question6 == "Lawyer"){
        correct++;
     } else (questionArray != )//Still figuring this logic out
+}
 //=========================================================================================
 //Function to keep up with the choice the user clicked
 function playerChoice(){
    document.onkeyup = function(event){
-   $("#startButton").on("click", function() 
+   if (playerChoice == indexOf(ltr))// would indexOf be best for the answer choice?
    console.log()   
  }//Still figuring out this logic to capture user's guess in the best way
 
@@ -126,7 +125,7 @@ function playerChoice(){
 function correctGuessWin(){
 	stopTimer();
 	correct++;
-	if (correctAnswer.indexOf(ltr) == )//would index of be best to use here?
+	if (correctAnswer.indexOf(ltr) == )//would index of be best to use here to determine win?
 	$(".questions").empty();
 	$(".questions").text("That's Correct!");
 	$(".questions").append("img")	
