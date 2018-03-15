@@ -1,16 +1,20 @@
 //Create a muliple choice question trivia game
 //The player will have a limited amount of time to finish the game
 //Player cannot pick more than one answer per question
-//Countdown timer needs to be added to the page
-//The game ends when the timer runs out 
+//Countdown timer needs to be added
+//The game ends when the timer runs out page
+ $(document).ready(function(){
 //====================================================================
 //VARIABLES
-var correctAnswer = []
-var incorrectAnswer = []
+var correctAnswer = ;
+var incorrectAnswer = ;
+var unanswered;
 var playerChoice = '';
-var timer = 25;
-var score = 0;
+var timerCountDown = 20;
+var index = 0;
 var question = 0;
+var intervalTime;
+var timeRemaining = "";
 var questionArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6']
 // var questions = 0
 
@@ -49,20 +53,52 @@ var questions =
 	  answer: 'Richard Belding'	
 	},
 	{
-	  question6: 'What was the occupation of Claire Huxstable on The Cosby Show?',
+	  question6: 'What was the occupation of Claire Huxtable on The Cosby Show?',
 	  options: ['Dentist', 'Doctor', 'Lawyer', 'Scientist'],
 	  answer: 'Lawyer'
 	}
 ]
-
+//FUNCTIONS
 //==================================================================
-//Check answers to see if corect
 
+//Function for game start
 function gameStart() {
-
+  $("#startButton").on("click", function() {
+   showMeQuestion();
 }
-
-
+//Function to show me the question
+function showMeQuestion () {
+  $(".questions").empty();
+  for (var i = 0; i < 6; i++)//for loop to loop through the questions 
+   $(".questions").text("<p> " + questionArray.length[0]);
+}
+//Function for the timer to count down
+function timerRun() {
+	timerCountDown = 20;
+	intervalTime = setInterval (countdown, 1000);
+}
+//Function to let the player know how much time they have left
+function timeRemaining(){
+   timeRemaining--;
+   $('#timeRemaining').text('Timer:' + timeRemaining);
+   if (timeRemaining === 0) {
+   	//if time runs out
+   	//increment questions
+   	// question++;
+   }
+   
+}
+//Function to let the player know the time is up and questions still unanswered
+function timesUp() {
+  $(".questions").empty();
+  unanswered++;
+	stopTimer();
+}
+//Function to stop the timer and clear it out
+function stopTimer(){
+	clearInterval(intervalTime);
+}
+//Function to check the answers of the player's choice
 function checkAnswers(){
 	if (question1 == "Vicki") {
     correct++;
@@ -77,11 +113,49 @@ function checkAnswers(){
 	    correct+;
 }   if(question6 == "Lawyer"){
        correct++;
-    }
+    } else (questionArray != )//Still figuring this logic out
+//=========================================================================================
+//Function to keep up with the choice the user clicked
+function playerChoice(){
+   document.onkeyup = function(event){
+   $("#startButton").on("click", function() 
+   console.log()   
+ }//Still figuring out this logic to capture user's guess in the best way
 
-
-function correctGuess(){
+//Function for correct guess/win for player and append image so player can see correct answer
+function correctGuessWin(){
+	stopTimer();
+	correct++;
+	if (correctAnswer.indexOf(ltr) == )//would index of be best to use here?
+	$(".questions").empty();
+	$(".questions").text("That's Correct!");
+	$(".questions").append("img")	
+}
+//Function for incorrect guess loss for player and append image so player can see correct answer
+function incorrectGuessLoser(){
+    stopTimer();
+	incorrect++;
+	$(".questions").empty();
+	$(".questions").text("So Sorry, That's Incorrect!");
+	$(".questions").append("Correct Answer: +")
+	$(".questions").append("img")
+}
+//Function to reset the game and start over
+function reset(){
+	correct = 0;
+	incorrect 0;
+	unanswered = 0;
+	gameStart();
 }
 
-function incorrectGuess(){
+
+
+ // timerCountDown = 25;
+ //   clearInterval(intervalTime);
+ //   intervalSet = setInterval (timer, 1000)
 }
+
+
+
+
+});

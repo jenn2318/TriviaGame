@@ -18,7 +18,8 @@
 <div class="timeContainer">
 <div id="timeRemaining">
 	<h3>Time Remaining:</h3>
-  <p class="timeRemain"></p>
+  <button id="startButton">Start</button>
+  <p class="timeRemaing"></p>
 </div>
 
 <!-- <button type="button" class="btn btn-Start">Start</button> -->
@@ -56,12 +57,19 @@
    	<input type="radio" id="m-choice" name="question 1" value="Richard Smalls">Richard Smalls<br>
    	<input type="radio" id="m-choice" name="question 1" value="Austin Love">Austin Love<br>
 
-   	<p>What was the occupation of Claire Huxstable on The Cosby Show?</p>
+   	<p>What was the occupation of Claire Huxtable on The Cosby Show?</p>
    	<input type="radio" id="m-choice" name="question 1" value="Dentist">Dentist<br>
    	<input type="radio" id="m-choice" name="question 1" value="Doctor">Doctor<br>
    	<input type="radio" id="m-choice" name="question 1" value="Lawyer">Lawyer<br>
    	<input type="radio" id="m-choice" name="question 1" value="Scientist">Scientist<br>
    </form>
+
+
+   <ul id="trivia-score">
+    <li>Correct: <span id="total-right"></span>
+    <li>Incorrect: <span id="total-wrong"></span>
+    <li>Unanswered: <span id="unanswered"></span>
+  </ul>
 
 	</div>
 </div>
@@ -72,6 +80,6 @@
 
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-
+ 
    </body>
 <html>
