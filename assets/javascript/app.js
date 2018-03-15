@@ -76,6 +76,7 @@ function showMeQuestion () {
 function timerRun() {
 	timerCountDown = 20;
 	intervalTime = setInterval (countdown, 1000);
+	showMeQuestion();
 }
 //Function to let the player know how much time they have left
 function timeRemaining(){
