@@ -6,24 +6,20 @@
  $(document).ready(function(){
 //====================================================================
 //VARIABLES
-var correctAnswer = ;
-var incorrectAnswer = ;
-var unanswered;
-var playerChoice = '';
-var timerCountDown = 20;
+var correctAnswer = 0
+var incorrectAnswer = 0
+var unanswered = 0
+var playerChoice = '';//may or may not need this
+var timerCountDown = 15;
 var index = 0;
-var question = 0;
-var intervalTime;
-var timeRemaining = "";
+var questionCounter = 0;
+// var intervalTime;
+IntervalTime = setInterval(timerCountDown, 1000);
+var timeRemaining = '';
 // var questionArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6']
-// var questions = 0
 
 //==================================================================
-//Array within an object...this may be helpful?
-// var question1 = 'What was the name of the girl on small wonder?';
-// var questionOptions = ['Vicki', 'Danielle', 'Samantha', 'Nicole'];
-// var questionAnswer = 'Vicki';
-// var playerChoice = ''; 
+//Array within an object...
 
 var questions = 
 [
@@ -58,104 +54,88 @@ var questions =
 	  answer: 'Lawyer'
 	}
 ]
+
 //FUNCTIONS
 //==================================================================
 
-//Function for game start
+//Function for game start-wait for user to click the button to start the game
 function gameStart() {
   $("#startButton").on("click", function() {
    showMeQuestion();
-}
+  }
+});   
+gameStart();
+
 //Function to show me the question
-function showMeQuestion () {
-  $(".questions").empty();
-  for (var i = 0; i < 6; i++)//for loop to loop through the questions 
-   $(".questions").text("<p> " + questions.length[i]);
+function showMeQuestion() {
+     if (index === questions.length) {        
+    } else {
+      var html = '';
+      html = html + '<h3>' + questions[index].question + '</h3>'
+      for (var i = 0; i < questions[index].options.length; i++) {
+      html = html + '<input type="radio" name="radioName" value=' + questions[index].options[i] + '>' + questions[index].options[i] + '<br>';
+      }
+      html = html + '<button onclick=checkAnswer()>Submit</button>';
+      console.log(questions[index]);
+      $('.questions').empty();
+      $('.questions').append(html);
+      checkAnswer();
+    }
+ }
+//Function for timer to count down while player is answering the question
+function timerCountDown () {
+    timerCountDown--;
+    $("#timeRemaining").html('Time Remaining : ' + timerRemaining);
+    if (timeRemaining ===0){
+    console.log("Time's Up!");
+   	stopTimer();
+   	resetTimer();
+   }   
 }
-//Function for the timer to count down
-function timerRun() {
-	timerCountDown = 20;
-	intervalTime = setInterval (countdown, 1000);
-	showMeQuestion();
-}
-//Function to let the player know how much time they have left
-function timeRemaining(){
-   timeRemaining--;
-   $('#timeRemaining').text('Timer:' + timeRemaining);
-   if (timeRemaining === 0) {
-   	//if time runs out
-   	//increment questions
-   	// question++;   
-}
-//Function to let the player know the time is up and questions still unanswered
-function timesUp() {
-  $(".questions").empty();
-  unanswered++;
-	stopTimer();
-}
-//Function to stop the timer and clear it out
-function stopTimer(){
+//Function to stop the Timer
+function stopTimer() {
 	clearInterval(intervalTime);
+   console.log(true);
 }
-//Function to check the answers of the player's choice
-function checkAnswers(){
-	if (question1 == "Vicki") {
-    correct++;
+//Function used to reset the timer for next game play
+function resetTimer () {
+	timerCountDown = 15;
+	clearInterval(intervalTime);
+	time = document.getElementByID("timeRemaining");
+	IntervalTime = setInterval(timerCountDown, 1000);
+	timerCountDown();
 }
-    if (question2 == "San Diego") {
-    	correct++;
-}    if (question3 == "Brandon") {
-    	correct++;
-}    if (question4 == "Thomas Magnum") {
-    	correct++;
-}   if (question5 == "Richard Belding") {
-	    correct+;
-}   if(question6 == "Lawyer"){
-       correct++;
-    } else (questionArray != )//Still figuring this logic out
-}
-//=========================================================================================
-//Function to keep up with the choice the user clicked
-function playerChoice(){
-   document.onkeyup = function(event){
-   if (playerChoice == indexOf(ltr))// would indexOf be best for the answer choice?
-   console.log()   
- }//Still figuring out this logic to capture user's guess in the best way
-
-//Function for correct guess/win for player and append image so player can see correct answer
-function correctGuessWin(){
-	stopTimer();
-	correct++;
-	if (correctAnswer.indexOf(ltr) == )//would index of be best to use here to determine win?
-	$(".questions").empty();
-	$(".questions").text("That's Correct!");
-	$(".questions").append("img")	
-}
-//Function for incorrect guess loss for player and append image so player can see correct answer
-function incorrectGuessLoser(){
-    stopTimer();
-	incorrect++;
-	$(".questions").empty();
-	$(".questions").text("So Sorry, That's Incorrect!");
-	$(".questions").append("Correct Answer: +")
-	$(".questions").append("img")
-}
-//Function to reset the game and start over
-function reset(){
-	correct = 0;
-	incorrect 0;
-	unanswered = 0;
-	gameStart();
-}
-
-
-
- // timerCountDown = 25;
- //   clearInterval(intervalTime);
- //   intervalSet = setInterval (timer, 1000)
-}
-
-
-
-
-});
+//Function to check player's answers' against correct answers 
+function checkAnswer() {
+    var answer = $('input[type=radio]:checked').val();
+    console.log('answer', answer);
+    if (answer === questions[index].answer) {
+        alert('Right');
+        question[index]++;
+        correctAnswer++;
+        setTimeOut(showMeQuestion, 1000 * 10);
+        
+    } else if (answer === undefined) {
+        alert('Not Answered');
+        question[index]++;
+        unanswered++;
+        setTimeOut(showMeQuestion, 1000 * 10);
+        
+    } else {
+        alert ('Wrong');
+        question[index]++;
+        setTimeOut(showMeQuestion, 1000 * 10);
+        gameOverResults();
+    }
+ }
+function gameOverResults(){	
+	$("#doneBtn").on("click", function() {
+    if (correctAnswer < 6) {
+    $('#totaScoreDiv').html('<ul><li>Correct Answer:' + numCorrect + '</li><li>Correct Answer:' + numWrong + '</li><li>Unanswered:' + numUnanswered + '</li></ul>' );
+    alert('You Lose');
+    } else if (correctAnswer == 6){
+	  $('#totaScoreDiv').html('<ul><li>Correct Answer:' + numCorrect + '</li><li>Correct Answer:' + numWrong + '</li><li>Unanswered:' + numUnanswered + '</li></ul>' );
+	  alert('You Win!');
+      gameOverResults();
+	} 
+ }

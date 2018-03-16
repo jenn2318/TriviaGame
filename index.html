@@ -5,28 +5,24 @@
 	<title>Trivia Game</title>
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+ <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>     
 
 <body>
 
 <div class="header">
-	<h1>Awesome 80's Trivia!<h1>
+	 <h1>Awesome 80's Trivia!<h1>
+   <button id="startButton">Start</button>
 </div>
-
 <div class="timeContainer">
-<div id="timeRemaining">
-	<h3>Time Remaining:</h3>
-  <button id="startButton">Start</button>
-  <p class="timeRemaing"></p>
+  <div id="timeRemaining">
+	   <h3>Time Remaining:</h3>
+  <!-- <p class="timeRemaing"></p> -->
 </div>
-
-<!-- <button type="button" class="btn btn-Start">Start</button> -->
-
 
 <div class="questions">
-   <form>
+  <form>
    	<p>What was the name of the girl on "Small Wonder?"</p>
    	<span><input type="radio" id="m-choice" name="question 1" value="Vicki">Vicki<br></span>
    	<span><input type="radio" id="m-choice" name="question 1" value="Samantha">Samantha<br></span>
@@ -62,24 +58,20 @@
    	<input type="radio" id="m-choice" name="question 1" value="Doctor">Doctor<br>
    	<input type="radio" id="m-choice" name="question 1" value="Lawyer">Lawyer<br>
    	<input type="radio" id="m-choice" name="question 1" value="Scientist">Scientist<br>
-   </form>
+    <br><br>
+     <button id="doneBtn">Done</button>
+  </form>
 
-
-   <ul id="trivia-score">
-    <li>Correct: <span id="total-right"></span>
-    <li>Incorrect: <span id="total-wrong"></span>
-    <li>Unanswered: <span id="unanswered"></span>
-  </ul>
-
+<div id="totalScoreDiv">
+   <ul>
+      <li>Correct: <span id="total-right"></span></li>
+      <li>Incorrect: <span id="total-wrong"></span></li>
+      <li>Unanswered: <span id="unanswered"></span></li>
+    </ul>
 	</div>
 </div>
 
-
-
-
-
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 
- 
-   </body>
+  </body>
 <html>
