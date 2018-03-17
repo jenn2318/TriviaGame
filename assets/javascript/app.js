@@ -19,7 +19,7 @@ var timeRemaining = '';
 
 //==================================================================
 //Array within an object...
-// $(document).ready(function(){
+$(document).ready(function(){
 var questions = 
 [
   {
@@ -142,4 +142,4 @@ function gameOverResults() {
 	} 
 
 });
- // });
+ 
