@@ -3,7 +3,6 @@
 //Player cannot pick more than one answer per question
 //Countdown timer needs to be added
 //The game ends when the timer runs out page
- $(document).ready(function(){
 //====================================================================
 //VARIABLES
 var correctAnswer = 0
@@ -20,7 +19,7 @@ var timeRemaining = '';
 
 //==================================================================
 //Array within an object...
-
+// $(document).ready(function(){
 var questions = 
 [
   {
@@ -62,10 +61,10 @@ var questions =
 function gameStart() {
   $("#startButton").on("click", function() {
    showMeQuestion();
-  }
-});   
-gameStart();
+  }); 
 
+ } 
+   
 //Function to show me the question
 function showMeQuestion() {
      if (index === questions.length) {        
@@ -113,29 +112,33 @@ function checkAnswer() {
         alert('Right');
         question[index]++;
         correctAnswer++;
-        setTimeOut(showMeQuestion, 1000 * 10);
+        setTimeOut(showMeQuestion, 10000);
         
     } else if (answer === undefined) {
         alert('Not Answered');
         question[index]++;
         unanswered++;
-        setTimeOut(showMeQuestion, 1000 * 10);
+        setTimeOut(showMeQuestion, 10000);
         
     } else {
         alert ('Wrong');
         question[index]++;
-        setTimeOut(showMeQuestion, 1000 * 10);
+        setTimeOut(showMeQuestion, 10000);
         gameOverResults();
     }
  }
-function gameOverResults(){	
-	$("#doneBtn").on("click", function() {
-    if (correctAnswer < 6) {
+ //When player clicks on button to submit the trivia quiz
+ function doneBtn(){
+ 	$("#doneBtn").on("click", function() 
+ //Fuction to let the player know how many they have correct, how many they have wrong, and how many they have unanswered and if they win or lose
+function gameOverResults() {	
+    if (correctAnswer < 6){
     $('#totaScoreDiv').html('<ul><li>Correct Answer:' + numCorrect + '</li><li>Correct Answer:' + numWrong + '</li><li>Unanswered:' + numUnanswered + '</li></ul>' );
     alert('You Lose');
-    } else if (correctAnswer == 6){
+  } else if (correctAnswer == 6){
 	  $('#totaScoreDiv').html('<ul><li>Correct Answer:' + numCorrect + '</li><li>Correct Answer:' + numWrong + '</li><li>Unanswered:' + numUnanswered + '</li></ul>' );
 	  alert('You Win!');
       gameOverResults();
 	} 
- }
+
+ // });
