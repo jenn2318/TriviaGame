@@ -9,7 +9,7 @@ var correctAnswer = 0
 var incorrectAnswer = 0
 var unanswered = 0
 var playerChoice = '';//may or may not need this
-var timerCountDown = 15;
+var timerCountDown = 10;
 var index = 0;
 var questionCounter = 0;
 // var intervalTime;
@@ -61,6 +61,7 @@ var questions =
 // function gameStart() {
   $("#startButton").on("click", function() {
    showMeQuestion();
+   timerCountDown();
   }); 
 
 
@@ -85,51 +86,47 @@ function showMeQuestion() {
 //Function for timer to count down while player is answering the question
 function timerCountDown () {
     timerCountDown--;
-    $("#timeRemaining").html('Time Remaining : ' + timerRemaining);
+    $("#timeRemaining").text('Time Remaining : ' + timerRemaining);
     if (timeRemaining ===0){
     console.log("Time's Up!");
-   	stopTimer();
-   	resetTimer();
+   	// stopTimer();
    }   
 }
 //Function to stop the Timer
-function stopTimer() {
-	clearInterval(intervalTime);
-   console.log(true);
-}
+// function stopTimer() {
+// 	clearInterval(intervalTime);
+//    console.log(true);
+// }
 //Function used to reset the timer for next game play
 function resetTimer () {
-	timerCountDown = 15;
+	timerCountDown = 10;
 	clearInterval(intervalTime);
-	time = document.getElementByID("timeRemaining");
+	// time = document.getElementByID("timeRemaining");
 	IntervalTime = setInterval(timerCountDown, 1000);
-	timerCountDown();
+	showMeQuestion();
+  gameOverResults();
 }
 //Function to check player's answers' against correct answers 
 function checkAnswer() {
     var answer = $('input[type=radio]:checked').val();
     console.log('answer', answer);
     if (answer === questions[index].answer) {
-        alert('Right');
+        // alert('Right');
         index++;
         correctAnswer++;
-        // $(img).show(question[index].question)
         setTimeout(showMeQuestion, 2000);
         
     } else if (answer === undefined) {
-        alert('Not Answered');
+        // alert('Not Answered');
         index++;
         unanswered++;
-        // $(img).show(question[index].question)
         setTimeout(showMeQuestion, 2000);
         
     } else {
-        alert ('Wrong');
+        // alert ('Wrong');
         index++;
         incorrectAnswer++;
-        // $(img).show(question[index].question)
         setTimeout(showMeQuestion, 2000);
-        // gameOverResults();
     }
  }
 
