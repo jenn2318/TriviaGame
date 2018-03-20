@@ -112,21 +112,26 @@ function checkAnswer() {
         alert('Right');
         question[index]++;
         correctAnswer++;
+        // $(img).show(question[index].question)
         setTimeOut(showMeQuestion, 10000);
         
     } else if (answer === undefined) {
         alert('Not Answered');
         question[index]++;
         unanswered++;
+        // $(img).show(question[index].question)
         setTimeOut(showMeQuestion, 10000);
         
     } else {
         alert ('Wrong');
         question[index]++;
+        incorrectAnswer++;
+        // $(img).show(question[index].question)
         setTimeOut(showMeQuestion, 10000);
         gameOverResults();
     }
  }
+
  //When player clicks on button to submit the trivia quiz
  function doneBtn(){
  	$("#doneBtn").on("click", function() 
