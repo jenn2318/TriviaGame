@@ -133,6 +133,7 @@ function checkAnswer() {
  //When player clicks on button to submit the trivia quiz
  // function doneBtn(){
  // 	$("#doneBtn").on("click", function() 
+ 
  //Fuction to let the player know how many they have correct, how many they have wrong, and how many they have unanswered and if they win or lose
 function gameOverResults() {
     $('.questions').empty();	
